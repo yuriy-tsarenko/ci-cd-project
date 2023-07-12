@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.cloudrun.microservicetemplate.util;
+package com.goit.util;
 
 import com.google.cloud.MetadataConfig;
 import com.google.cloud.ServiceOptions;

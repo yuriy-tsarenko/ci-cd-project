@@ -14,29 +14,31 @@
  * limitations under the License.
  */
 
-package com.cloudrun.microservicetemplate;
+package com.goit;
 
-import javax.annotation.PreDestroy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/** Microservice template for Cloud Run. */
+import javax.annotation.PreDestroy;
+
+@Slf4j
 @SpringBootApplication
 public class MicroserviceTemplateApplication {
-  private static final Logger logger =
-      LoggerFactory.getLogger(MicroserviceTemplateApplication.class);
 
-  public static void main(String[] args) {
-    SpringApplication.run(MicroserviceTemplateApplication.class, args);
-  }
+    public static void main(String[] args) {
+        SpringApplication.run(MicroserviceTemplateApplication.class, args);
+//        String encode = new BCryptPasswordEncoder().encode("12345");
+//        System.out.println(encode);
+    }
 
-  /** Register shutdown hook to listen for termination signal. */
-  @PreDestroy
-  public void tearDown() {
-    // Clean up resources on shutdown
-    logger.info(MicroserviceTemplateApplication.class.getSimpleName() + ": received SIGTERM.");
-    // Flush async logs if needed - current Logback config does not buffer logs
-  }
+    /**
+     * Register shutdown hook to listen for termination signal.
+     */
+    @PreDestroy
+    public void tearDown() {
+        // Clean up resources on shutdown
+        log.info(MicroserviceTemplateApplication.class.getSimpleName() + ": received SIGTERM.");
+        // Flush async logs if needed - current Logback config does not buffer logs
+    }
 }
